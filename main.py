@@ -1,3 +1,4 @@
+import roles.py
 import autogen
 import tempfile
 import shutil
@@ -9,39 +10,6 @@ from autogen import GroupChatManager
 from autogen import GroupChat
 from autogen import UserProxyAgent
 #===============================================================================
-file_path_info = "/projectnb/msspbc/jordanstout/home/santa_kaggle_autogen/puzzle_info.csv"
-file_path_puzzles = "/projectnb/msspbc/jordanstout/home/santa_kaggle_autogen/puzzles.csv" 
-file_path_subex = "/projectnb/msspbc/jordanstout/home/santa_kaggle_autogen/subex.csv"
-
-custom_prefix = "AIs_folder"
-custom_dir = "/projectnb/msspbc/jordanstout/home/santa_kaggle_autogen"
-temp_dir=tempfile.mkdtemp(prefix=custom_prefix, dir=custom_dir)
-print(f"Temporary Directory Path: {temp_dir}")
-try:
-    file_name = os.path.basename(file_path_info)
-    temp_file_path = os.path.join(temp_dir, file_name)
-    shutil.copy(file_path_info, temp_file_path)
-
-    file_name_2 = os.path.basename(file_path_puzzles)
-    temp_file_path_2 = os.path.join(temp_dir, file_name_2)
-    shutil.copy(file_path_puzzles, temp_file_path_2)
-
-    file_name_3 = os.path.basename(file_path_subex)
-    temp_file_path_3 = os.path.join(temp_dir, file_name_3)
-    shutil.copy(file_path_subex, temp_file_path_3)
-
-    with open(temp_file_path, 'r') as file:
-        train=file.read()
-    with open(temp_file_path_2, 'r') as file_2:
-        test=file_2.read()
-    with open(temp_file_path_3, 'r') as file_3:
-        subex=file_3.read()
-
-    print(os.listdir(temp_dir))	
-
-finally:
-    print("I got u bro")
-#==============================================================================
 executor = LocalCommandLineCodeExecutor(
     timeout=100,
     work_dir=temp_dir
