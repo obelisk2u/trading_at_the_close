@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def scrape_google(query: str) -> str:
-    api_key = "456135c8e9019893e97dc9b8216fed6617035c420f3139c50d24086cd0db146b"
+    api_key = ""
     url = "https://serpapi.com/search"
     
     params = {
